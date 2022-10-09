@@ -1,24 +1,57 @@
-# README
+## DB 設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
 
-Things you may want to cover:
+| Column             | Type                | Options                   |
+|--------------------|---------------------|---------------------------|
+| nickname           | string              | null: false               |
+| first_name         | string              | null: false               |
+| last_name          | string              | null: false               |
+| birthday           | string              | null: false               |
+| email              | string              | null: false, unique: true |
+| encrypted_password | string              | null: false, unique: true |
 
-* Ruby version
+### Association
 
-* System dependencies
+* has_many :tweets
+* has_many :comments
+* has_many :sns_credentials
 
-* Configuration
+## tweets table
 
-* Database creation
+| Column             | Type                | Options                        |
+|--------------------|---------------------|--------------------------------|
+| title              | string              | null: false                    |
+| place              | string              | null: false                    |
+| introduction       | text                | null: false                    |
+| user               | references          | null: false, foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- has_many :comments
 
-* Services (job queues, cache servers, search engines, etc.)
+## comments table
 
-* Deployment instructions
+| Column      | Type       | Options                        |
+|-------------|------------|--------------------------------|
+| content     | text       | null: false                    |
+| tweet       | references | null: false, foreign_key: true |
+| user        | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :tweet
+- belongs_to :user
+
+## sns_credentials table
+
+| Column             | Type                | Options                        |
+|--------------------|---------------------|--------------------------------|
+| provider           | string              | null: false                    |
+| uid                | string              | null: false                    |
+| user               | references          | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
