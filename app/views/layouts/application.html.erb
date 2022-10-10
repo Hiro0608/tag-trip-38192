@@ -11,18 +11,28 @@
 
   <body>
     <header class="header">
-      <div class="header__bar row">
-        <h1 class="grid-6"><a href="/">Tag Trip</a></h1>
-        <div class="user_nav grid-6">
-          <a class="post" href="/tweets/new">投稿する</a>
+      <div class="inner">
+        <div class="nav">
+          <div class="nav__left">
+            <%# link_to image_tag("logo.png", class: :logo), root_path %>
+          </div>
+          <% if user_signed_in? %>
+            <div class="nav__right">
+              <%= link_to "New Proto", new_user_path, class: :nav__btn %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
+            </div>
+          <% else %>
+            <div class="nav__right">
+              <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
+              <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
+            </div>
+          <% end %>
         </div>
       </div>
     </header>
     <%= yield %>
-    <footer>
-      <p>
-        Copyright Tag-Trip 2022.
-      </p>
+    <footer class="footer">
+      <p class="copyright">Copyright © PROTO SPACE All rights reserved.</p>
     </footer>
   </body>
 </html>
