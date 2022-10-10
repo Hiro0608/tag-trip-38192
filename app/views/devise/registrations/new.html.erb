@@ -19,6 +19,16 @@
   </div>
 
   <div class="field">
+    <%= f.label :first_name_kana %><br />
+    <%= f.text_field :first_name_kana %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name_kana %><br />
+    <%= f.text_field :last_name_kana %>
+  </div>
+
+  <div class="field">
     <%= f.label :birthday %><br />
     <%= f.date_select :birthday, start_year: 1950, end_year: 2022 %>
   </div>
