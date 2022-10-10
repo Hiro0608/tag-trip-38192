@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true,  format: {with: /\A[ぁ-んァ-ン一-龥]/ } 
   validates :password, format: { with: VALID_PASSWORD_REGEX }
 
-  #has_many :tweets
+  has_many :tweets
   #has_many :comments
   has_many :sns_credentials
 

@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Home画面です</h1>
+
+<% if current_user.present? %>
+<%= link_to "tweetを新しく作成する", new_tweet_path %>
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<% else %>
+<%= link_to "ログイン", new_user_session_path %>
+<% end %>
+
