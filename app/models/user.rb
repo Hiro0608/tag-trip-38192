@@ -4,6 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+  validates :nickname, presence: true
+  validates :password, format: { with: VALID_PASSWORD_REGEX }
+  validates :first_name, presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/ }
+  validates :last_name, presence: true,  format: {with: /\A[ぁ-んァ-ン一-龥]/ } 
+  validates :password, format: { with: VALID_PASSWORD_REGEX }
+
+  has_many :tweets
+  #has_many :comments
   has_many :sns_credentials
 
   def self.from_omniauth(auth)
