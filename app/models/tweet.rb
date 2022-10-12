@@ -7,4 +7,5 @@ class Tweet < ApplicationRecord
   validates :place, presence: true
   validates :introduction, presence: true  
   validates :image, presence: true
+
 end
