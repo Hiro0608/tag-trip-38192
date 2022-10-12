@@ -54,7 +54,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # ログイン機能
 gem 'devise'
-#オムニオース
+# SNS認証
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
