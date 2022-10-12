@@ -1,1 +1,8 @@
-tweets/new.html.erb.投稿画面作成必要
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading">新規投稿</h2>
+        <%= render partial: "form", locals: { tweet: @tweet } %>
+    </div>
+  </div>
+</div>

@@ -56,7 +56,7 @@ a {
 }
 .nav__btn{
   display: inline-block;
-  padding: 0.4em 1.6em;
+  padding: 0.8em 2.6em;
   font-size: 1.0em;
   color: #87CEFA;
   text-decoration: none;
@@ -72,7 +72,7 @@ a {
 
 .nav__logout{
   display: inline-block;
-  padding: 0.4em 1.6em;
+  padding: 0.8em 2.6em;
   font-size: 1.0em;
   color: #87CEFA;
   text-decoration: none;
@@ -104,7 +104,7 @@ a {
 }
 
 .actions{
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .form__btn{
