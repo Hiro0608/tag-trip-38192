@@ -39,11 +39,10 @@ a {
 .header {
   background-color: #ccf4fc;
   margin-bottom: 48px;
-  padding: 20px 0;
-
+  padding: 25px 0;
 }
 .inner {
-  width: 1024px;
+  width: 1350px;
   margin: 0 auto;
 }
 .nav {
@@ -69,7 +68,6 @@ a {
   color: #fff;
   background: #28A745;
 }
-
 .nav__logout{
   display: inline-block;
   padding: 0.8em 2.6em;
