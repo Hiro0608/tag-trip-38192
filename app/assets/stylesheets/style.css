@@ -51,7 +51,20 @@ a {
   justify-content: space-between;
 }
 .logo {
-  width: 200px;
+  width: 180px;
+  display: inline-block;
+  padding: 0.8em 4.4em;
+  font-size: 1.0em;
+  color: #87CEFA;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #87CEFA solid;
+  border-radius:10px;
+  transition: 0.4s ease;
+}
+.logo:hover{
+  color: #fff;
+  background: #ee7800;
 }
 .nav__btn{
   display: inline-block;
@@ -66,7 +79,7 @@ a {
 }
 .nav__btn:hover{
   color: #fff;
-  background: #28A745;
+  background: #37a34a;
 }
 .nav__logout{
   display: inline-block;
@@ -85,22 +98,59 @@ a {
 }
 
 /* フォーム周り */
+.page-heading {
+  font-family: monospace;
+  color: #333631;
+  font-size: 45px;
+  margin-bottom: 30px;
+}
 .form__wrapper{
-  width: 80%;
-  margin: 0 auto;
-  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  padding: 30px 0px 50px;
+}
+.form-group {
+  width: 50%;
   display: flex;
-  padding-top: 10px;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 15px;
+}
+.form-group:first-child {
+  padding: 0;
+}
+.form-input {
+  height: 50px;
+  text-align: justify;
+  padding-right: 200px;
+  border: 1px #87CEFA solid;
+  border-radius: 10px;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+  transition: 0.2s ease;
 }
 
-.form__text {
-  width: 50%;
+
+.form-input-name {
+  height: 50px;
+  text-align: justify;
+  padding-right: 180px;
+  border: 1px #87CEFA solid;
+  border-radius: 10px;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+  transition: 0.2s ease;
 }
 
 .field{
   margin: 40px 0;
 }
 
+.nickname-field{
+  width: 500px;
+  padding: 15px;
+  border: 1px solid white;
+  display: block;
+}
 .actions{
   margin-bottom: 40px;
 }
@@ -124,6 +174,26 @@ a {
   cursor: pointer;
 }
 
+.input-birth-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.input-birth-wrap select {
+  width: 200px;
+  height: 50px;
+  font-size: 16px;
+  margin-top: 10px;
+  padding-left: 50px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+}
+.input-birth-wrap p {
+  line-height: 60px;
+  padding: 0 5px;
+}
+
 /* メイン */
 
 .greeting{
@@ -132,10 +202,7 @@ a {
 .greeting__link{
   text-decoration: underline;
 }
-.page-heading {
-  font-size: 30px;
-  margin-bottom: 28px;
-}
+
 .card__wrapper {
   display: flex;
   flex-wrap: wrap;
