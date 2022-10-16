@@ -18,8 +18,11 @@ class TweetsController < ApplicationController
   end
 
   def show
-    @comment = Comment.new
-    @comments = @tweet.comments
+    @tweet = Tweet.find(params["id"])
+    p "@tweet"
+    p @tweet
+    #@comment = Comment.new
+    #@comments = @tweet.comments
   end
 
   def edit

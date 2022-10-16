@@ -1,4 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Home画面です</h1>
-
+<main class="main">
+  <div class="inner">
+    <% if user_signed_in? %>
+      <div class="greeting">
+        こんにちは、
+      </div>
+    <% end %>
+    <div class="card__wrapper">
+      <%= render partial: 'tweet', collection: @tweets %>
+    </div>
+  </div>
+</main>
