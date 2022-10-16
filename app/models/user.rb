@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :birthday, presence: true
 
   has_many :tweets
-  #has_many :comments
+  has_many :comments
   has_many :sns_credentials
 
   def self.from_omniauth(auth)
