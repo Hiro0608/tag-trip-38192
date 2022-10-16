@@ -3,7 +3,11 @@ class HomesController < ApplicationController
 
   # GET /homes or /homes.json
   def index
-    @homes = Home.all
+    if current_user.present?
+      @tweets = Tweet.all
+    else
+      @tweets = []
+    end
   end
 
   # GET /homes/1 or /homes/1.json

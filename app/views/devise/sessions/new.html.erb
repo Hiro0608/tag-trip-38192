@@ -1,34 +1,26 @@
 <div class="main">
   <div class="inner">
     <div class="form__wrapper">
-    <h2 class="page-heading">ログイン</h2>
+    <h1 class="page-heading">ユーザーログインページ</h1>
+    <h2 class="sub-heading">会員情報入力</h2>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :email, "メールアドレス" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password, "パスワード" %><br />
-        <%= f.password_field :password, autocomplete: "current-password" %>
-      </div>
-
-      <% if devise_mapping.rememberable? %>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+      <div class="form-group">
+        <div class="field"><span class="indispensable">必須</span>
+          <%= f.label :email, "メールアドレス" %><br />
+          <%= f.email_field :email, autofocus: true, class:"form-input", autocomplete: "email" %>
         </div>
-      <% end %>
-
-      <div class="actions">
-        <%= f.submit "ログイン" %>
       </div>
+      <div class="field"><span class="indispensable">必須</span>
+        <%= f.label :password, "ログインパスワード" %><br />
+        <%= f.password_field :password, class:"form-input", autocomplete: "new-password" %>
+      </div>
+      <div class="actions">
+        <%= f.submit :"ログイン", class:"log-in" %>
+      </div>
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+        <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+      <% end %>
     <% end %>
     </div>
   </div>
 </div>
-
-<%= render "devise/shared/links" %>
-
-<%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post%>
-<%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post%>

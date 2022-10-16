@@ -101,9 +101,9 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include("First name kana is invalid")
       end
       it "生年月日がない場合は登録できないこと" do
-        @user.birthday = ''
+        @user.birthday = '' 
         @user.valid?
-        expect(@user.errors.full_messages).to include("生年月日を入力してください")
+        expect(@user.errors.full_messages).to include("Birthday can't be blank")
       end
     end
   end

@@ -14,7 +14,8 @@
       <div class="inner">
         <div class="nav">
           <div class="nav__left">
-            <%= link_to image_tag("logo.jpg", class: :logo), root_path %>
+            <%= link_to "TAG-TRIP", root_path, class: :logo %>
+            
           </div>
           <% if user_signed_in? %>
             <div class="nav__right">
@@ -23,8 +24,10 @@
             </div>
           <% else %>
             <div class="nav__right">
+              <%= link_to "Facebookで登録", user_facebook_omniauth_authorize_path, class: :nav__btn , method: :post%>
+              <%= link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path, class: :nav__btn , method: :post%>
+              <%= link_to "新規登録(メールアドレスで登録)", new_user_registration_path, class: :nav__btn %>
               <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
-              <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
             </div>
           <% end %>
         </div>

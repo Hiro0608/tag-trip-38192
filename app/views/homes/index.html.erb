@@ -1,23 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Home画面です</h1>
-
-<div class="contents row">
-  <% @homes.each do |home| %>
-    <div class="content_post" style="background-image: url(<%= tweet.image %>);">
-      <p><%= tweet.text %></p>
-      <span class="name">
-        <%= tweet.name %>
-      </span>
+<main class="main">
+  <div class="inner">
+    <% if user_signed_in? %>
+      <div class="greeting">
+        こんにちは、
+      </div>
+    <% end %>
+    <div class="card__wrapper">
+      <%= render partial: 'tweet', collection: @tweets %>
     </div>
-  <% end %>
-</div>
-
-<% if current_user.present? %>
-<%= link_to "tweetを新しく作成する", new_tweet_path %>
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-<% else %>
-<%= link_to "ログイン", new_user_session_path %>
-<% end %>
-
-
+  </div>
+</main>
