@@ -14,22 +14,22 @@ RSpec.describe Tweet, type: :model do
       it "写真が添付されていないと登録できない" do
         @tweet.image = nil
         @tweet.valid?
-        expect(@tweet.errors.full_messages).to include("Image can't be blank")
+        expect(@tweet.errors.full_messages).to include("Imageを入力してください")
       end
       it "タイトルが入力されていなければ登録できない" do
         @tweet.title = ''
         @tweet.valid?
-        expect(@tweet.errors.full_messages).to include("Title can't be blank")
+        expect(@tweet.errors.full_messages).to include("Titleを入力してください")
       end
       it "場所が入力されていなければ登録できない" do
         @tweet.place = ''
         @tweet.valid?
-        expect(@tweet.errors.full_messages).to include("Place can't be blank")
+        expect(@tweet.errors.full_messages).to include("Placeを入力してください")
       end
       it "投稿の説明が入力されていなければ登録できない" do
         @tweet.introduction = ''
         @tweet.valid?
-        expect(@tweet.errors.full_messages).to include("Introduction can't be blank")
+        expect(@tweet.errors.full_messages).to include("Introductionを入力してください")
       end
       it "userが紐付いていない場合は登録できない" do
         @tweet.user = nil

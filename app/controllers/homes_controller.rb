@@ -2,12 +2,16 @@ class HomesController < ApplicationController
   before_action :set_home, only: %i[ show edit update destroy ]
 
   # GET /homes or /homes.json
+  #def index
+    #if current_user.present?
+      #@tweets = Tweet.all
+    #else
+      #@tweets = []
+    #end
+  #end
+
   def index
-    if current_user.present?
-      @tweets = Tweet.all
-    else
-      @tweets = []
-    end
+    @tweets = Tweet.includes(:user)
   end
 
   # GET /homes/1 or /homes/1.json

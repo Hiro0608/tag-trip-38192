@@ -1,26 +1,33 @@
+<%# form_with model: @user, url: user_session_path, local: true do |f| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
 <div class="main">
   <div class="inner">
     <div class="form__wrapper">
     <h1 class="page-heading">ユーザーログインページ</h1>
     <h2 class="sub-heading">会員情報入力</h2>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-group">
-        <div class="field"><span class="indispensable">必須</span>
-          <%= f.label :email, "メールアドレス" %><br />
-          <%= f.email_field :email, autofocus: true, class:"form-input", autocomplete: "email" %>
-        </div>
-      </div>
+    <%# ログイン時のエラーメッセージ  %>
+    <div class='login-flash-message'>
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+    </div>
+    <div class="form-group">
       <div class="field"><span class="indispensable">必須</span>
-        <%= f.label :password, "ログインパスワード" %><br />
-        <%= f.password_field :password, class:"form-input", autocomplete: "new-password" %>
+        <%= f.label :email, "メールアドレス" %><br />
+        <%= f.email_field :email, autofocus: true, class:"form-input", autocomplete: "email" %>
       </div>
-      <div class="actions">
-        <%= f.submit :"ログイン", class:"log-in" %>
-      </div>
+    </div>
+    <div class="field"><span class="indispensable">必須</span>
+      <%= f.label :password, "ログインパスワード" %><br />
+      <%= f.password_field :password, class:"form-input", autocomplete: "new-password" %>
+    </div>
+    <div class="actions">
+      <%= f.submit :"ログイン", class:"log-in" %>
+    </div>
       <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
         <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+        <% end %>
       <% end %>
-    <% end %>
     </div>
   </div>
 </div>

@@ -66,5 +66,8 @@ gem 'image_processing', '~> 1.2'
 gem 'rspec-rails', '~> 4.0.0'
 gem 'factory_bot_rails'
 gem 'faker'
+# 日本語化
+gem 'rails-i18n', '~> 6.0'
+gem 'devise-i18n'
 # デバッグツール
 gem "pry-rails"
